@@ -1,11 +1,11 @@
 <?php
+session_start();
+ob_start();
+
 /**
  * Created by PhpStorm.
  * User: Timothy
  **/
-ob_start();
-session_start();
-$_SESSION["adminLogin"] = "false";
 ?>
 
 <html>
@@ -17,11 +17,11 @@ $_SESSION["adminLogin"] = "false";
 if(empty($_POST["uname"]))
 {
     ?>
-    <form method="post" action="login.php">
+    <form method="post" action="login.php"  name="loginForm">
         <table border="0" align="center" width="30%" cellpadding="2" cellspacing="5">
 
             <tr>
-                <td class="pref">UserName</td>
+                <td class="pref">User Name</td>
                 <td class="prefdisplaycentre"><input type="text" name="uname" size="12" maxlength="10"></td>
             </tr>
             <tr>
@@ -43,26 +43,26 @@ else
     include("connection.php");
     $conn = mysqli_connect($host,$uName,$pass,$dB)or die('Error connecting to MySQL server.');
 
-    $query="SELECT admin_username FROM admin WHERE admin_username = ? AND admin_password = ?";
+    $query="SELECT admin_id FROM admin WHERE admin_username = ".$_POST["uname"]." AND admin_password = ".hash('sha256', $_POST["pword"]);
 
     $stmt = mysqli_prepare($conn, $query);
+    //$stmt->execute();
 
     $stmt->bind_param('ss', $uname, $pword);
     $uname = $_POST["uname"];
     $pword = hash('sha256', $_POST["pword"]);
     $stmt->execute();
-    $stmt->bind_result($uname);
+    $stmt->bind_result($uname, $pword);
 
-    if(!empty($stmt->fetch()))
-    {
+    if(!empty($stmt->fetch())) {
         $_SESSION["adminLogin"] = "success";
-        header("location: home.php");
-
+        echo "Login Details are correct";
+        //header("location: /fit2104A2/home.php");
     }
     else
     {
-        echo "Sorry, login details are incorrect";
-        header("location: product.php");
+        echo "Login Detail are incorrect";
+        //header("location: /fit2104A2/h ome.php");
     }
 }
 ?>

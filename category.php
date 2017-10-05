@@ -1,4 +1,9 @@
 <?php
+session_start();
+if($_SESSION["adminLogin"] != "success")
+{
+    header("location: login.php");
+}
 /**
  * Created by PhpStorm.
  * User: Aubrey
@@ -78,8 +83,5 @@ function sortType()
             <input type="button" value="Add new category" OnClick="window.location='categoryModify.php?Action=Add'">
         </center>
     </table>
-
 </body>
-
-
 </html>
