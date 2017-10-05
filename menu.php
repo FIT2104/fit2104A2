@@ -12,14 +12,13 @@ include  ('connection.php');
     <nav>
         <table border="3" align="center">
             <tr>
-                <th><a href="home.php"> Home </a></th>
+                <th><a href="login.php"> Login </a></th>
                 <th><a href="product.php?sort=&Action=All"> Product </a></th>
                 <th><a href="client.php"> Client </a></th>
                 <th><a href="category.php?sort="> Category </a></th>
                 <th><a href="project.php?sort="> Project </a></th>
                 <th><a href="multipleProducts.php?Action=View"> Multiple Products </a></th>
                 <th><a href="images.php?Action=View"> Images </a></th>
-
             </tr>
         </table>
     </nav>
