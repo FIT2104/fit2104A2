@@ -15,6 +15,7 @@ include  ('connection.php');
                 <th><a href="login.php"> Login </a></th>
                 <th><a href="product.php?sort=&Action=All"> Product </a></th>
                 <th><a href="client.php"> Client </a></th>
+                <th><a href="sendEmail.php"> Send Emails</a></th>
                 <th><a href="category.php?sort="> Category </a></th>
                 <th><a href="project.php?sort="> Project </a></th>
                 <th><a href="multipleProducts.php?Action=View"> Multiple Products </a></th>
