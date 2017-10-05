@@ -17,11 +17,15 @@ ob_start();
 if(empty($_POST["uname"]))
 {
     ?>
+<<<<<<< HEAD
     <form method="post" action="login.php" name="loginform">
+=======
+    <form method="post" action="login.php"  name="loginForm">
+>>>>>>> origin/master
         <table border="0" align="center" width="30%" cellpadding="2" cellspacing="5">
 
             <tr>
-                <td class="pref">UserName</td>
+                <td class="pref">User Name</td>
                 <td class="prefdisplaycentre"><input type="text" name="uname" size="12" maxlength="10"></td>
             </tr>
             <tr>
@@ -53,7 +57,11 @@ else
     include("connection.php");
     //$conn = mysqli_connect($host,$uName,$pass,$dB)or die('Error connecting to MySQL server.');
 
+<<<<<<< HEAD
     $query="SELECT admin_id FROM admin WHERE admin_username = ? AND admin_password = ?";
+=======
+    $query="SELECT admin_id FROM admin WHERE admin_username = ".$_POST["uname"]." AND admin_password = ".hash('sha256', $_POST["pword"]);
+>>>>>>> origin/master
 
     $stmt = mysqli_prepare($conn, $query);
     //$stmt->execute();
@@ -62,10 +70,11 @@ else
     $uname = $_POST["uname"];
     $pword = hash('sha256', $_POST["pword"]);
     $stmt->execute();
-    $stmt->bind_result($uname);
+    $stmt->bind_result($uname, $pword);
 
     if(!empty($stmt->fetch())) {
         $_SESSION["adminLogin"] = "success";
+<<<<<<< HEAD
         $_SESSION["badlogin"] = "false";
         header("location: home.php");
 
@@ -74,6 +83,15 @@ else
     {
         $_SESSION["badlogin"] = "true";
         header("location: login.php");
+=======
+        echo "Login Details are correct";
+        //header("location: /fit2104A2/home.php");
+    }
+    else
+    {
+        echo "Login Detail are incorrect";
+        //header("location: /fit2104A2/h ome.php");
+>>>>>>> origin/master
     }
 }
 ?>
