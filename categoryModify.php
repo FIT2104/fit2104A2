@@ -222,5 +222,14 @@ $conn->close();
 }
 }
 ?>
+<table>
+    <td align="center">
+        <div class="round-button">
+            <a href="sourceCode.php?destination=categoryModify.php" target="_blank">
+                <img name="myImg" src="images/productcategory.png" alt="Product Category Source Code"/>
+            </a>
+        </div>
+    </td>
+</table>
 </body>
 </html>

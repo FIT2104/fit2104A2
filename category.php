@@ -74,6 +74,7 @@ function sortType()
     $result->free_result();
     $conn->close();
     ?>
+</table>
 
     <table>
         <center>
@@ -81,5 +82,18 @@ function sortType()
             <input type="button" value="Add new category" OnClick="window.location='categoryModify.php?Action=Add'">
         </center>
     </table>
+
+
+    </a>
+    <table>
+        <td align="center">
+            <div class="round-button">
+                <a href="sourceCode.php?destination=category.php" target="_blank">
+                    <img name="myImg" src="images/category.png" alt="Category Source Code"/>
+                </a>
+            </div>
+        </td>
+    </table>
+
 </body>
 </html>

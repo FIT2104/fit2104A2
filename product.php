@@ -252,5 +252,14 @@ case "Search": {
 }
         $conn->close();
 ?>
+    <table>
+        <td align="center">
+            <div class="round-button">
+                <a href="sourceCode.php?destination=product.php" target="_blank">
+                    <img name="myImg" src="images/product.png" alt="Product Source Code"/>
+                </a>
+            </div>
+        </td>
+    </table>
     </body>
 </html>

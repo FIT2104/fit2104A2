@@ -260,5 +260,14 @@ if ($result) {
 }
 }
 ?>
+<table>
+    <td align="center">
+        <div class="round-button">
+            <a href="sourceCode.php?destination=projectModify.php" target="_blank">
+                <img name="myImg" src="images/multiproject.png" alt="Multiple Projects Source Code"/>
+            </a>
+        </div>
+    </td>
+</table>
 </body>
 </html>

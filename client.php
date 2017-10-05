@@ -106,6 +106,15 @@ function sortType()
             <input type="button" value="Add New Client" OnClick="window.location='clientModify.php?Action=Add'">
         </center>
     </table>
+    <table>
+        <td align="center">
+            <div class="round-button">
+                <a href="sourceCode.php?destination=client.php" target="_blank">
+                    <img name="myImg" src="images/client.png" alt="Client Source Code"/>
+                </a>
+            </div>
+        </td>
+    </table>
 
 </body>
 </html>

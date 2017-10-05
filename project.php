@@ -100,6 +100,15 @@ function sortType()
         </center>
     </table>
 
+    <table>
+        <td align="center">
+            <div class="round-button">
+                <a href="sourceCode.php?destination=project.php" target="_blank">
+                    <img name="myImg" src="images/project.png" alt="Project Source Code"/>
+                </a>
+            </div>
+        </td>
+    </table>
 </body>
 
 
