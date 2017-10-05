@@ -216,7 +216,7 @@ $rowP = $result->fetch_assoc();
         </table>
         <br>
 
-        //display assigned category table
+        <!-display assigned category table->
         <center><h3>Assign Categories</h3>
             <form method="post">
                 <table border="1" cellpadding="3">
@@ -246,7 +246,7 @@ $rowP = $result->fetch_assoc();
             <input type="submit" value="Update product"">
             <input type="button" value="Return to list" OnClick="window.location='product.php?sort=&Action=All'">
 
-            //display modify images options
+            <!-display modify images options->
             <form method="post" enctype="multipart/form-data"
                   action="productModify.php?product_id=<?php echo $_GET["product_id"]; ?>&Action=Upload">
                 <h3>Add images</h3>
@@ -260,8 +260,9 @@ $rowP = $result->fetch_assoc();
         <?php
         ?>
     </form>
-    //display product's images
+
     <?php
+    //display product's images
     $query2 = "select * from ProductImage where product_id =" . $_GET["product_id"];
     $result2 = $conn->query($query2);
     if ($result2->num_rows != 0) {
