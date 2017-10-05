@@ -96,6 +96,7 @@ switch ($strAction) {
                                    value="<?php echo $row["product_purchase_price"]; ?>"></td>
                         <td><input type="text" name="<?php echo "sale".$rowCounter; ?>"
                                    value="<?php echo $row["product_sale_price"]; ?>"></td>
+                        <td><input type="checkbox" name="<?php echo "check".$rowCounter; ?>" </input></td>
                     </tr>
                     <?php
                     $rowCounter ++;
@@ -103,7 +104,7 @@ switch ($strAction) {
                 $result->free_result();
                 ?>
             </table>
-            <center><input type="submit" value="Update all products"></center>
+            <center><input type="submit" value="Update selected products"></center>
         </form>
         <?php
         break;
@@ -114,31 +115,38 @@ switch ($strAction) {
         $query = "SELECT * FROM Product";
         $result = $conn->query($query);
         $rowCounter = 1;
+        $noneCheckedCounter = 1;  //if nonCheckedCounter equal to numbers of rows that means no checkboxes had been checked
         while ($row = $result->fetch_assoc()) {
-            $purStr = "purchase" . $rowCounter;
-            $purchase = $_POST[$purStr];
-            $saleStr = "sale" . $rowCounter;
-            $sale = $_POST[$saleStr];
-            $id = $row['product_id'];
-            $query1 = "UPDATE Product SET product_purchase_price='$purchase',product_sale_price='$sale' WHERE product_id='$id'";
-            $result1 = $conn->query($query1) or die('Error querying database.');
+            $checkStr = "check".$rowCounter;
+            if (isset($_POST[$checkStr])) {
+                $purStr = "purchase" . $rowCounter;
+                $purchase = $_POST[$purStr];
+                $saleStr = "sale" . $rowCounter;
+                $sale = $_POST[$saleStr];
+                $id = $row['product_id'];
+                $query1 = "UPDATE Product SET product_purchase_price='$purchase',product_sale_price='$sale' WHERE product_id='$id'";
+                $result1 = $conn->query($query1) or die('Error querying database.');
+            } else {
+                $noneCheckedCounter ++;
+            }
             $rowCounter++;
         }
-        if ($result) {
+        if ($noneCheckedCounter == $rowCounter){
             ?>
             <script language="JavaScript">
-                alert("The selected record had been updated successfully");
-                window.location = 'multipleProducts.php?Action=View';
+            alert("No product had been selected");
+            window.location = 'multipleProducts.php?Action=View';
             </script>
-            <?php
-        }else
-            ?>
-            <script language="JavaScript">
-                alert("Error updating record. Please contact System Administrator");
-                window.location = 'multipleProducts.php?Action=View';
-            </script>
-            <?php
-        $result->free_result();
+    <?php
+        } else {
+        ?>
+    <script language="JavaScript">
+        alert("The selected record had been updated successfully");
+        window.location = 'multipleProducts.php?Action=View';
+    </script>
+<?php
+        }
+    $result->free_result();
     }
         $conn->close();
 }

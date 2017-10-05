@@ -376,7 +376,7 @@ case "Upload": {
     }
     else
     {
-        $query = "select * from ProductImage where product_id =" . $_GET["product_id"];
+        $query = "select * from ProductImage";
         $result = $conn->query($query);
         //check if image with the same name exist
         if ($result->num_rows != 0) {
