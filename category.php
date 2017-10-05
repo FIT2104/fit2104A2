@@ -1,9 +1,7 @@
 <?php
 session_start();
-if($_SESSION["adminLogin"] != "success")
-{
-    header("location: login.php");
-}
+include "Authenticate.php";
+ob_start();
 /**
  * Created by PhpStorm.
  * User: Aubrey

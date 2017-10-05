@@ -1,6 +1,5 @@
 <?php
 session_start();
-session_destroy();
 /**
  * Created by PhpStorm.
  * User: Aubrey
