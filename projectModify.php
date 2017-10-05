@@ -172,7 +172,7 @@ $country= $_POST['country'];
 $desc = $_POST['desc'];
 $amount = $_POST['amount'];
 $id = $_GET['project_id'];
-$query = "UPDATE Project SET project_city='$city',project_country='$country',project_description='$desc',raise_amount='$amount'";
+$query = "UPDATE Project SET project_city='$city',project_country='$country',project_description='$desc',raise_amount='$amount' WHERE project_id=".$_GET["project_id"];
 $result = $conn->query($query) or die('Error querying database.');
 
 if ($result) {
