@@ -105,7 +105,7 @@ case "Add": {
 break;
 }
 
-//when add button from project table page was clicked
+//when confirm add button from add project page was clicked
 case "ConfirmAdd": {
 $query = "INSERT INTO `project`(`project_city`, `project_country`, `project_description`, `raise_amount`) VALUES ('$_POST[city]','$_POST[country]','$_POST[desc]','$_POST[amount]')";
 $result = $conn->query($query)or die('Error querying database.');
@@ -168,7 +168,7 @@ $result->free_result();
 break;
 }
 
-//when update button from update project page was clicked
+//when confirm update button from update project page was clicked
 case "ConfirmUpdate": {
 $city= $_POST['city'];
 $country= $_POST['country'];
@@ -234,7 +234,7 @@ $result->free_result();
 break;
 }
 
-//when delete button from delete project page was clicked
+//when confirm delete button from delete project page was clicked
 case "ConfirmDelete":{
 $query = "DELETE FROM Project WHERE project_id =" . $_GET["project_id"];
 $result = $conn->query($query) or die('Error querying database.');
