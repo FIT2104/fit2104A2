@@ -21,12 +21,7 @@ include("menu.php");
     <tr>
         <th>Client ID</th>
         <th>Name</th>
-        <th>Street</th>
-        <th>Suburb</th>
-        <th>State</th>
-        <th>Postcode</th>
         <th>Email</th>
-        <th>Password</th>
         <th>Phone</th>
         <th>Mobile</th>
         <th>Mailing List</th>
@@ -40,12 +35,7 @@ include("menu.php");
         <tr>
             <td><?php echo $row["client_id"]; ?></td>
             <td><?php echo $row["client_gname"]; ?> <?php echo $row["client_fname"]; ?></td>
-            <td><?php echo $row["client_street"]; ?></td>
-            <td><?php echo $row["client_suburb"]; ?></td>
-            <td><?php echo $row["client_state"]; ?></td>
-            <td><?php echo $row["client_pc"]; ?></td>
             <td><?php echo $row["client_email"]; ?></td>
-            <td><?php echo $row["client_password"]; ?></td>
             <td><?php echo $row["client_phone"]; ?></td>
             <td><?php echo $row["client_mobile"]; ?></td>
             <td><?php echo $row["client_mlist"]; ?></td>
