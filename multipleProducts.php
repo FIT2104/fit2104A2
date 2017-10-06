@@ -106,6 +106,16 @@ switch ($strAction) {
             </table>
             <center><input type="submit" value="Update selected products"></center>
         </form>
+
+    <center><table>
+            <td align="center">
+                <div class="round-button">
+                    <a href="sourceCode.php?destination=multipleProducts.php" target="_blank">
+                        <img name="myImg" src="images/multiproduct.png" alt="Multiple Product Source Code"/>
+                    </a>
+                </div>
+            </td>
+        </table></center>
         <?php
         break;
     }

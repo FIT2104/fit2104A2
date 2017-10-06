@@ -4,7 +4,7 @@ include "Authenticate.php";
 ob_start();
 /**
  * Created by PhpStorm.
- * User: Aubrey
+ * User: Tim
  * Date: 17/09/2017
  * Time: 11:42 PM
  */
@@ -100,7 +100,7 @@ function sortType()
         </center>
     </table>
 
-    <table>
+    <center><table>
         <td align="center">
             <div class="round-button">
                 <a href="sourceCode.php?destination=project.php" target="_blank">
@@ -109,6 +109,7 @@ function sortType()
             </div>
         </td>
     </table>
+    </center>
 </body>
 
 

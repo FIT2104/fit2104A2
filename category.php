@@ -85,6 +85,7 @@ function sortType()
 
 
     </a>
+<center>
     <table>
         <td align="center">
             <div class="round-button">
@@ -94,6 +95,7 @@ function sortType()
             </div>
         </td>
     </table>
+</center>
 
 </body>
 </html>

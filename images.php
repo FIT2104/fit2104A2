@@ -106,7 +106,7 @@ case "Delete":{
     break;
 }
 } ?>
-<table>
+<center><table>
     <td align="center">
         <div class="round-button">
             <a href="sourceCode.php?destination=images.php" target="_blank">
@@ -115,3 +115,4 @@ case "Delete":{
         </div>
     </td>
 </table>
+</center>

@@ -106,7 +106,7 @@ function sortType()
             <input type="button" value="Add New Client" OnClick="window.location='clientModify.php?Action=Add'">
         </center>
     </table>
-    <table>
+    <center><table>
         <td align="center">
             <div class="round-button">
                 <a href="sourceCode.php?destination=client.php" target="_blank">
@@ -114,7 +114,7 @@ function sortType()
                 </a>
             </div>
         </td>
-    </table>
+    </table></center>
 
 </body>
 </html>

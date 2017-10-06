@@ -294,6 +294,16 @@ $rowP = $result->fetch_assoc();
             </table>
         </form>
     </center>
+
+    <center><table>
+            <td align="center">
+                <div class="round-button">
+                    <a href="sourceCode.php?destination=productModify.php" target="_blank">
+                        <img name="myImg" src="images/productcategory.png" alt="Product Modification/Product Category Source Code"/>
+                    </a>
+                </div>
+            </td>
+        </table></center>
 <?php
 }
 $result2->free_result();

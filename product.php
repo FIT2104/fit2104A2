@@ -252,7 +252,7 @@ case "Search": {
 }
         $conn->close();
 ?>
-    <table>
+    <center><table>
         <td align="center">
             <div class="round-button">
                 <a href="sourceCode.php?destination=product.php" target="_blank">
@@ -260,6 +260,6 @@ case "Search": {
                 </a>
             </div>
         </td>
-    </table>
+        </table></center></body>
     </body>
 </html>
