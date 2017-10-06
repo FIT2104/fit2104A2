@@ -253,10 +253,11 @@ if ($result) {
     </script>
 
     <?php
-    break;
+
 }
     $result->free_result();
     $conn->close();
+    break;
 }
 }
 ?>

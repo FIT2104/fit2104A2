@@ -543,11 +543,12 @@ if ($result1) {
     </script>
 
     <?php
-    break;
+
 }
     $result->free_result();
     $result1->free_result();
     $conn->close();
+    break;
 }
 }
 ?>

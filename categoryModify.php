@@ -206,7 +206,7 @@ if ($result1) {
     </script>
 
     <?php
-    break;
+
 }
     $result1->free_result();
 } else {
@@ -219,6 +219,7 @@ if ($result1) {
 }
 $result->free_result();
 $conn->close();
+    break;
 }
 }
 ?>

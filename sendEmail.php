@@ -12,35 +12,36 @@ include "connection.php";
 </head>
 <body>
 <?php
-if (!isset($_POST["check"]))
-{
-    ?>
+    $strAction = $_GET["Action"];
 
-    <?php
-    $query="SELECT client_gname, client_fname, client_email FROM client WHERE client_mlist = 'Y' OR client_mlist = 'y' ORDER BY client_fname";
-    $result = mysqli_query($conn, $query);
-    ?>
-    <center>
-            <h1>Famox Email Server</h1>
-        <p>
-            <form method="post" action="sendEmail.php">
-                <table border="1" cellpadding="4">
+    switch ($strAction) {
+
+    case "Show": {
+$query = "SELECT client_gname, client_fname, client_email FROM client WHERE client_mlist = 'Y' OR client_mlist = 'y' ORDER BY client_fname";
+$result = mysqli_query($conn, $query);
+?>
+<center>
+    <h1>Famox Email Server</h1>
+    <p>
+    <form  method="post" action="sendEmail.php?Action=Send" >
+        <form method="post">
+            <table border="1" cellpadding="4">
+                <tr>
+                    <th bgcolor="#6495ed">Client</th>
+                    <th bgcolor="#6495ed">Email?</th>
+                </tr>
+                <?php while ($clients = $result->fetch_assoc()) { ?>
                     <tr>
-                        <th bgcolor="#6495ed">Client</th>
-                        <th bgcolor="#6495ed">Email?</th>
+                        <td><?php echo $clients["client_gname"] . " ";
+                            echo $clients["client_fname"]; ?>
+                        </td>
+                        <td>
+                            <input type="checkbox" name="check[]" value="<?php echo $clients["client_email"]; ?>">
+                        </td>
                     </tr>
-                    <?php while ($clients= $result->fetch_assoc()) {?>
-                    <tr>
-                    <td><?php echo $clients["client_gname"]." ";
-                        echo $clients["client_fname"];?>
-                    </td>
-                    <td>
-                    <input type="checkbox" name="check[]" value="<?php echo $clients["client_email"]; ?>">
-                    </td>
-                    </tr>
-        <?php } ?>
-    </form>
-    <form action="sendEmail.php" method="post">
+                <?php } ?>
+        </form>
+
         <table width="400" border="0" cellspacing="2" cellpadding="0">
             <tr>
                 <td width="30%" class="bodytext">From :</td>
@@ -55,7 +56,7 @@ if (!isset($_POST["check"]))
                 <td><textarea name="content" cols="45" rows="6" id="comment" class="bodytext"></textarea></td>
             </tr>
             <tr>
-                <td class="bodytext"> </td>
+                <td class="bodytext"></td>
                 <td align="left" valign="top">
                     <input type="Submit" name="Send" value="Send">
                     <input type="reset" value="Reset">
@@ -65,13 +66,31 @@ if (!isset($_POST["check"]))
     </form>
 
     <?php
-}
-else{
-    $from = "From: Harry Helper <Harry.Helper@Famox.com.au>";
-    $msg = $_POST["content"];
-    $subject = $_POST["subject"];
-    foreach($_POST["check[]"] as $to) {
-        mail($to, $subject, $msg, $from);
+    break;
+    }
+    case "Send": {
+        if (isset($_POST["check"])) {
+            $from = "From: Harry Helper <Harry.Helper@Famox.com.au>";
+            $subject = $_POST["subject"];
+            $msg = $_POST["content"];
+            foreach ($_POST["check"] as $to) {
+                mail($to, $subject, $msg, $from);
+            }
+            ?>
+            <script language="JavaScript">
+                alert("Mail had been sent to selected clients.");
+                window.location = 'sendEmail.php?Action=Show';
+            </script>
+            <?php
+        } else {
+            ?>
+            <script language="JavaScript">
+                alert("No client had been selected");
+                window.location = 'sendEmail.php?Action=Show';
+            </script>
+    <?php
+        }
+        break;
     }
 }
 ?>
