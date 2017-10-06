@@ -1,6 +1,5 @@
 <?php
 ob_start();
-require "vendor/autoload.php";
 include "connection.php";
 include "CreatePDF.php";
 ?>
@@ -22,7 +21,7 @@ include "CreatePDF.php";
     $headerWidth = array(150, 250, 250, 300, 250, 250, 100, 300, 300, 200, 200);
     $pdf = new CreatePDF();
 
-    $table = $PDF->ClientPDF($header, $headerWidth, $allRows);
+    $table = $pdf->ClientPDF($header, $headerWidth, $allRows);
 
     echo $table;
     echo "<br />";
