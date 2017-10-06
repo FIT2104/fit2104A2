@@ -12,7 +12,7 @@ include  ('connection.php');
 <nav>
         <table border="3" align="center">
             <tr>
-                <th><a href="login.php"> Login </a></th>
+                <th><a href="home.php"> Home </a></th>
                 <th><a href="product.php?sort=&Action=All"> Product </a></th>
                 <th><a href="client.php?sort="> Client </a></th>
                 <th><a href="sendEmail.php?Action=Show"> Send Emails</a></th>

@@ -39,17 +39,9 @@ if(empty($_POST["uname"]))
         </table>
     </form>
 
-    <?php
-    if (isset($_SESSION['badlogin'])){
-        if($_SESSION['badlogin'] == "true") {
-            ?>
-        <td width = '80' style='text-align:center;'>
-        <?php echo "Opps, Invalid login information."; ?>
-        </td>
 <?php
         }
-    }
-}
+
 else
 {
     include("connection.php");
@@ -68,15 +60,15 @@ else
     $stmt->bind_result($uname, $pword);
 
     if(!empty($stmt->fetch())) {
+        echo "<script type='text/javascript'>alert('Login Successful!')</script>";
         $_SESSION["adminLogin"] = "success";
-        $_SESSION["badlogin"] = "false";
         header("location: home.php");
 
     }
     else
     {
+        echo "<script type='text/javascript'>alert('Oops, Invalid Login Information)'</script>";
         $_SESSION["adminLogin"] = "false";
-        $_SESSION["badlogin"] = "true";
         header("location: login.php");
     }
 }
