@@ -8,8 +8,8 @@
 include  ('connection.php');
 ?>
 <html>
-<center><h1> Famox Charity </h1></center>
-    <nav>
+<center><h1><img src="images/Famox.png" width="350" height="150"</h1></center>
+<nav>
         <table border="3" align="center">
             <tr>
                 <th><a href="login.php"> Login </a></th>
