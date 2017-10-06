@@ -20,6 +20,7 @@ include  ('connection.php');
                 <th><a href="project.php?sort="> Project </a></th>
                 <th><a href="multipleProducts.php?Action=View"> Multiple Products </a></th>
                 <th><a href="images.php?Action=View"> Images </a></th>
+                <th><a href="documentation.php?"> Documentation </a></th>
             </tr>
         </table>
     </nav>

@@ -5,8 +5,8 @@ ob_start();
 /**
  * Created by PhpStorm.
  * User: Tim
- * Date:
- * Time:
+ * Date: 27/10/2017
+ * Time: 5:20pm
  */
 ob_start();
 ?>
@@ -70,12 +70,14 @@ ob_start();
             alert("State shouldn't be more than 6 characters, should be just state code");
             return false;
         }
-        if (isNaN(postcodeA)) {
-            alert("Postcode must be numbers");
-            return false;
-        } else if (postcodeA.length != 4) {
-            alert("Postcode should be only 4 digit");
-            return false;
+        if (postcodeA != null && postcodeA != "") {
+            if (isNaN(postcodeA)) {
+                alert("Postcode must be numbers");
+                return false;
+            } else if (postcodeA.length != 4) {
+                alert("Postcode should be only 4 digit");
+                return false;
+            }
         }
 
         if (isNaN(phoneC)) {
