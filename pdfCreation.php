@@ -1,5 +1,8 @@
 <?php
 ob_start();
+require __DIR__ . '\vendor\autoload.php';
+session_start();
+include "Authenticate.php";
 include "connection.php";
 include "CreatePDF.php";
 ?>

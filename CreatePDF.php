@@ -13,7 +13,7 @@ class CreatePDF
         $pdf->SetHeaderData($PDF_HEADER_LOGO, $PDF_HEADER_LOGO_WIDTH, "Famox Client List", "");
 
         $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', 30));
-        $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA_));
+        $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
 
         $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED, '', 12);
 

@@ -33,7 +33,8 @@ include  ('connection.php');
                 <th><a href="home.php"> Home </a></th>
                 <th><a href="product.php?sort=&Action=All"> Product </a></th>
                 <th><a href="client.php?sort="> Client </a></th>
-                <th><a href="sendEmail.php?Action=Show"> Send Emails</a></th>
+                <th><a href="sendEmail.php?Action=Show"> Send Emails </a></th>
+                <th><a href="pdfCreation.php"> Generate Pdf </a></th>
                 <th><a href="category.php?sort="> Category </a></th>
                 <th><a href="project.php?sort="> Project </a></th>
                 <th><a href="multipleProducts.php?Action=View"> Multiple Products </a></th>
