@@ -11,18 +11,21 @@ include  ('connection.php');
 <center><h1><img src="images/Famox.png" width="350" height="220"</h1></center>
 <center>
 <?php
-if (basename($_SERVER['PHP_SELF'])!= "home.php" && basename($_SERVER['PHP_SELF'])!= "documentation.php"&& basename($_SERVER['PHP_SELF'])!= "login.php") {
-    if (isset($_SESSION['adminLogin']) && $_SESSION['adminLogin'] == true) {
-        echo "Signed in as " . $_SESSION['username'] . "!";
-        ?>
-        <input type="button" value="Sign Out" OnClick="window.location='login.php?Action=Show'">
-        <?php
+
+    if (isset($_SESSION['adminLogin']) && $_SESSION['adminLogin'] == "success") {
+        if (basename($_SERVER['PHP_SELF']) != "login.php") {
+            echo "Signed in as " . $_SESSION['username'] . "!";
+            ?>
+            <input type="button" value="Sign Out" OnClick="window.location='login.php?Action=Show'">
+            <?php
+        }
     } else {
+    if (basename($_SERVER['PHP_SELF']) != "login.php") {
         ?>
         <input type="button" value="Sign In" OnClick="window.location='login.php?Action=Show'">
         <?php
     }
-}?>
+    }?>
 </center>
 <nav>
         <table border="3" align="center">

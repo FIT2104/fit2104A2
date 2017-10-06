@@ -1,5 +1,5 @@
 <?php
-if(!(isset($_SESSION["adminLogin"])) AND ($_SESSION["adminLogin"] != "success")){
+if($_SESSION["adminLogin"] != "success"){
     ?>
     <script type='text/javascript'>
         alert('Please login before visiting this page');

@@ -14,8 +14,7 @@ include "menu.php";
 </head>
 <body>
 <?php
-unset($_SESSION['adminLogin']);
-unset($_SESSION['badLogin']);
+$_SESSION["adminLogin"] = "fail";
 $strAction = $_GET["Action"];
 
 switch ($strAction) {
@@ -27,11 +26,11 @@ switch ($strAction) {
 
                 <tr>
                     <td class="pref">User Name</td>
-                    <td class="prefdisplaycentre"><input type="text" name="uname" size="12" maxlength="10"></td>
+                    <td class="prefdisplaycentre"><input type="text" name="uname" size="12" maxlength="12"></td>
                 </tr>
                 <tr>
                     <td class="pref">Password</td>
-                    <td class="prefdisplayecentre"><input type="password" name="pword" size="12" maxlength="10"></td>
+                    <td class="prefdisplayecentre"><input type="password" name="pword" size="12" maxlength="12"></td>
                 </tr>
                 <tr>
                     <td colspan="3" class="heading2" align="center">
@@ -50,13 +49,12 @@ switch ($strAction) {
         $query = "SELECT admin_id FROM admin WHERE admin_username = ? AND admin_password = ?";
 
         $stmt = mysqli_prepare($conn, $query);
-        //$stmt->execute();
 
-        $stmt->bind_param('ss', $uname, $pword);
         $uname = $_POST["uname"];
         $pword = hash('sha256', $_POST["pword"]);
+        $stmt->bind_param('ss', $uname, $pword);
         $stmt->execute();
-        $stmt->bind_result($uname, $pword);
+        $stmt->bind_result($admin_id);
 
         if (!empty($stmt->fetch())) {
 
